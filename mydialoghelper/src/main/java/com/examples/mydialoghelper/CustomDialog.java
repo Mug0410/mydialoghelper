@@ -1,31 +1,42 @@
 package com.examples.mydialoghelper;
 
+
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.content.DialogInterface;
+
 import android.view.View;
-import android.view.ViewGroup;
+
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
-import org.xmlpull.v1.XmlPullParser;
+
 
 public class CustomDialog {
-    public static void showCustomDialog(Context context, View view){
-        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
-        ViewGroup viewGroup = view.findViewById(android.R.id.content);
 
-        //then we will inflate the custom alert dialog xml that we created
-        View dialogView = LayoutInflater.from(context).inflate((XmlPullParser) view, viewGroup, false);
-
-
-        //Now we need an AlertDialog.Builder object
+    public static void simpleAlert(Context context,String title,String mesage,String pBtnTitle,String nBtnTitle,String pButnClickMsg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-        //setting the view of the builder to our custom view that we already inflated
-        builder.setView(dialogView);
-
-        //finally creating the alert dialog and displaying it
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        builder.setTitle(title);
+        builder.setMessage(mesage);
+        builder.setPositiveButton(pBtnTitle,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(context,
+                                pButnClickMsg,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+        builder.setNegativeButton(nBtnTitle, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+               dialog.dismiss();
+            }
+        });
+        builder.setCancelable(false);
+        builder.create().show();
     }
+
+
+
 }
