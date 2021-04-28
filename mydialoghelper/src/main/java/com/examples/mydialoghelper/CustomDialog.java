@@ -33,7 +33,7 @@ public class CustomDialog {
 
 
 
-    public void withItems(Context context, String[] items,String title,String pBtnTitle,String negBtnTitle,String neuBtnTitle,String dialogMes) {
+    public static void  withItems(Context context, String[] items,String title,String pBtnTitle,String negBtnTitle,String neuBtnTitle,String dialogMes) {
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
