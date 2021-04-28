@@ -55,8 +55,4 @@ public class CustomDialog {
         button.setPadding(0, 0, 20, 0);
         button.setTextColor(Color.WHITE);
     }
-
-
-
-
 }
