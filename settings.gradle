@@ -1,0 +1,3 @@
+include ':mydialoghelper'
+include ':app'
+rootProject.name = "DialogHelper"
